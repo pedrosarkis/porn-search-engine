@@ -13,9 +13,6 @@ class XhamsterService extends SearchService {
         const data = await (await fetch(url)).text()
         const $ = cheerio.load(data)
         
-        //scrap on every element that has the data-video-id regardless of the value
-        //get all divs with data-video-id attribute
-        //data-testid=video-duration is on the duration is, not a class data-testid is the attribute and video-duration is the value
         const videos = $('div[data-video-id]')
 
         videos.each((index, element) => {

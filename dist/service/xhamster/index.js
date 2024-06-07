@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cheerio_1 = __importDefault(require("cheerio"));
 const searchService_1 = __importDefault(require("../searchService"));
 const Video_1 = __importDefault(require("../../entities/Video"));
-const fs_1 = __importDefault(require("fs"));
 class XhamsterService extends searchService_1.default {
     constructor() {
         super('https://xhamster.com');
@@ -26,7 +25,6 @@ class XhamsterService extends searchService_1.default {
             const url = `${this.baseURL}/search/${queryFormatted}`;
             const data = yield (yield fetch(url)).text();
             const $ = cheerio_1.default.load(data);
-            fs_1.default.writeFileSync('xhamster.html', data);
             //scrap on every element that has the data-video-id regardless of the value
             //get all divs with data-video-id attribute
             //data-testid=video-duration is on the duration is, not a class data-testid is the attribute and video-duration is the value
