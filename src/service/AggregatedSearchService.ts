@@ -11,8 +11,8 @@ class AggregatedSearchService {
     async search(query: string): Promise<Video[]> {
         const searchPromises = this.services.map(service => service.search(query))
         const results = await Promise.all(searchPromises)
-        return results.flat();
+        return results.flat()
     }
 }
 
-export default AggregatedSearchService;
+export default AggregatedSearchService
