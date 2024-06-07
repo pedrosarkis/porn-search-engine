@@ -27,7 +27,7 @@ class PornhubService extends searchService_1.default {
     search(query_1) {
         return __awaiter(this, arguments, void 0, function* (query, page = 0) {
             const queryFormatted = query.split(' ').join('+');
-            let url = `https://www.pornhub.com/video/search?search=${queryFormatted}`;
+            let url = `${this.baseURL}/video/search?search=${queryFormatted}`;
             if (page > 0) {
                 url += `&page=${page}`;
             }
@@ -55,7 +55,7 @@ class PornhubService extends searchService_1.default {
             videos.each((index, element) => {
                 const title = this.normalizeData($(element).find('.title').text());
                 const url = this.baseURL + $(element).find('.title a').attr('href');
-                const thumbnail = $(element).find('.thumb img').attr('data-src') || '';
+                const thumbnail = $(element).find('.videoThumb').attr('src') || '';
                 const duration = this.normalizeData($(element).find('.duration').text());
                 const tags = [];
                 const description = '';

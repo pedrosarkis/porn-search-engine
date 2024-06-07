@@ -23,7 +23,7 @@ class EpornService extends searchService_1.default {
         return __awaiter(this, arguments, void 0, function* (query, page = 1) {
             const queryFormatted = query.split(' ').join('-');
             const pageString = page > 1 ? page : '';
-            const data = yield (yield (fetch(`https://www.eporner.com/search/${queryFormatted}/${pageString}`))).text();
+            const data = yield (yield (fetch(`${this.baseURL}/search/${queryFormatted}/${pageString}`))).text();
             const $ = cheerio_1.default.load(data);
             //<div class="mb hdy" data-id="7233862" data-vp="7233862|0|2" id="vf7233862"><div class="mvhdico" title="Quality"><span>1080p</span></div><div class="mbimg"><div class="mbcontent"><a href="/video-2UM7toqnp16/elisaa-sanches2/"><img src="https://static-ca-cdn.eporner.com/thumbs/static4/7/72/723/7233862/13_240.jpg" data-st="7233862|13|0" alt="ELISAA SANCHES2" /></a></div></div><div class="mbunder"><p class="mbtit"><a href="/video-2UM7toqnp16/elisaa-sanches2/">ELISAA SANCHES2 - Elisa Sanches</a></p><p class="mbstats"><span class="mbtim" title="Duration">35:17</span><span class="mbrate" title="Rating">87%</span><span class="mbvie" title="Views">873,022</span><span class="mb-uploader"><a href="/profile/santos101500abc/" title="Uploader">santos101500abc</a></span></p></div></div>
             const videos = $('#vidresults .mb');
