@@ -8,6 +8,6 @@ const xvideosService = new XvideosService()
 const pornhubService = new PornHubService()
 
 
-const aggregatedSearchService = new AggregatedSearchService([epornService, xvideosService, pornhubService ]);
+const aggregatedSearchService = new AggregatedSearchService([epornService, xvideosService, pornhubService ])
 
 export default aggregatedSearchService
