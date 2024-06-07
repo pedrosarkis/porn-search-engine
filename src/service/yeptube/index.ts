@@ -19,12 +19,8 @@ class YepTubeService extends SearchService {
 	const data = await (await fetch(url)).text()
 	fs.writeFileSync('yeptube.html', data)
 	const $ = cheerio.load(data,  { xmlMode: true })
-	//the content is inside a script tag, and inside the script tag there is a class video
-	//the filter it's not working, it's returning 0
 	const videos = $('ins')
 
-
-	console.log(videos)
 	videos.each((_, element) => {
 		const title = $(element).find('a').attr('title') || ''
 		const url = this.baseURL.replace('search/videos', '') + $(element).find('a').attr('href') || ''
