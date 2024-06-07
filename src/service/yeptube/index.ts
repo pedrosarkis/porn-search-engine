@@ -17,12 +17,12 @@ class YepTubeService extends SearchService {
 	const url = `${this.baseURL}/${queryFormatted}`
 
 	const data = await (await fetch(url)).text()
-	fs.writeFileSync('yeptube.html', data)
+	
 	const $ = cheerio.load(data,  { xmlMode: true })
 	const videos = $('ins')
 
 	videos.each((_, element) => {
-		const title = $(element).find('a').attr('title') || ''
+		const title = $(element).find('img').attr('alt') || ''
 		const url = this.baseURL.replace('search/videos', '') + $(element).find('a').attr('href') || ''
 		const thumbnail = $(element).find('img').attr('src') || ''
 		const duration = $(element).find('span.time').text() || ''

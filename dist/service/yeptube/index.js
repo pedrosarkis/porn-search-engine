@@ -32,7 +32,7 @@ class YepTubeService extends searchService_1.default {
             const $ = cheerio_1.default.load(data, { xmlMode: true });
             const videos = $('ins');
             videos.each((_, element) => {
-                const title = $(element).find('a').attr('title') || '';
+                const title = $(element).find('img').attr('alt') || '';
                 const url = this.baseURL.replace('search/videos', '') + $(element).find('a').attr('href') || '';
                 const thumbnail = $(element).find('img').attr('src') || '';
                 const duration = $(element).find('span.time').text() || '';
