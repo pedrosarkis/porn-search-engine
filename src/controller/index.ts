@@ -1,8 +1,8 @@
 import SearchController from "./searchController"
 import SearchRepository from "../repositories/searchRepository"
-import SearchEporn from "../service/pornhub/index"
+import AggregatedSearchService from "../service/index"
 
-const searchRepository = new SearchRepository(new SearchEporn())
+const searchRepository = new SearchRepository(AggregatedSearchService)
 const searchController = new SearchController(searchRepository)
 
 export default searchController

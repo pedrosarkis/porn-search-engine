@@ -14,3 +14,4 @@ class SearchService {
     }
 }
 exports.default = SearchService;
+//where is the best place to mix all the services?

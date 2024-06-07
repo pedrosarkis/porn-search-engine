@@ -21,3 +21,5 @@ abstract class SearchService {
 }
 
 export default SearchService
+
+//where is the best place to mix all the services?
