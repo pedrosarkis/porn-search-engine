@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cheerio_1 = __importDefault(require("cheerio"));
 const Video_1 = __importDefault(require("../../entities/Video"));
 const searchService_1 = __importDefault(require("../searchService"));
+const fs_1 = __importDefault(require("fs"));
 class PornhubService extends searchService_1.default {
     constructor() {
         super('https://www.pornhub.com');
@@ -52,6 +53,7 @@ class PornhubService extends searchService_1.default {
             const data = yield (yield fetch(url)).text();
             const $ = cheerio_1.default.load(data);
             const videos = $('div[data-action="search"]');
+            fs_1.default.writeFileSync('pornhub.html', data);
             videos.each((index, element) => {
                 const title = this.normalizeData($(element).find('.title').text());
                 const url = this.baseURL + $(element).find('.title a').attr('href');

@@ -17,6 +17,10 @@ abstract class SearchService {
         return this.videos
     }
 
+    public async fetchToText(url: string) {
+        return (await fetch(url)).text()
+    }
+
     abstract search(query: string): Promise<Video[]>
 }
 
