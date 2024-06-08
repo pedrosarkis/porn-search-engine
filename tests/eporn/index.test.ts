@@ -5,7 +5,7 @@ jest.setTimeout(10000)
 
 
 
-describe('XvideosSearch', () => {
+describe('EpornSearch', () => {
     let epornService: EpornService
     let html: string
 
@@ -22,6 +22,6 @@ describe('XvideosSearch', () => {
 
     test('search should scrape the videos', async () => {
         const videos = await epornService.search('elisa-sanches')
-        expect(videos).toHaveLength(186)
+        expect(videos).toHaveLength(248)
     })
 })

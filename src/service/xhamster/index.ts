@@ -8,6 +8,7 @@ class XhamsterService extends SearchService {
     }
 
     async search(query: string) {
+        const videoList: Video[] = []
         const queryFormatted = query.split(' ').join('+')
         const url = `${this.baseURL}/search/${queryFormatted}`
         const data = await (await fetch(url)).text()
@@ -24,10 +25,10 @@ class XhamsterService extends SearchService {
             const description = $(element).find('.thumb-list__description').text()
             const duration = $(element).find('div[data-testid="video-duration"]').text()
             const video = new Video(title, url, tags, description, duration, thumbnail)
-            this.addVideo(video)
+            videoList.push(video)
 
         })
-        return this.getVideos()
+        return videoList
 
     }
 }

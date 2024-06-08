@@ -9,6 +9,7 @@ class XvideosService extends SearchService {
     }
     
     async search(query: string, page: number = 0) {
+        const videoList: Video[] = []
         // url com page k=elisa+sanches&p=1
         //https://www.xvideos.com/?k=elisa+sanches
         const queryFormatted: string = query.split(' ').join('+')
@@ -27,10 +28,10 @@ class XvideosService extends SearchService {
             const tags: string[] = []
             const description: string = ''
             const video: Video = new Video(title, url, tags, description, duration, thumbnail)
-            this.addVideo(video)
+            videoList.push(video)
         })
 
-        return this.getVideos()
+        return videoList
 
     }
 }

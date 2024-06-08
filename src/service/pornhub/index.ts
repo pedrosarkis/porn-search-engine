@@ -9,12 +9,11 @@ class PornhubService extends SearchService {
     }
 
     private normalizeData(data: string) {
-        //"\n                \n                                                            I received the boy to put the wallpaper on and took off all my clothes and gave it to him                \n
-        //remove all \n and spaces
         return data.replace(/\n/g, '').trim()
     }
 
     async search(query: string, page: number = 0) {
+        const videoList: Video[] = []
         const queryFormatted = query.split(' ').join('+')
         let url = `${this.baseURL}/video/search?search=${queryFormatted}`
         if (page > 0) {
@@ -55,9 +54,9 @@ class PornhubService extends SearchService {
             const tags: string[] = []
             const description = ''
             const video = new Video(title, url, tags, description, duration, thumbnail)
-            this.addVideo(video)
+            videoList.push(video)
         })      
-        return this.getVideos()
+        return videoList
     }
 }
 
