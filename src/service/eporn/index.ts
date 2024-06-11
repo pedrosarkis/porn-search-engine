@@ -1,6 +1,6 @@
 import Video from '../../entities/Video'
 import cheerio from 'cheerio'
-import SearchService from '../searchService'
+import SearchService from '../../repositories/searchService'
 class EpornService extends SearchService{
    
     constructor() {

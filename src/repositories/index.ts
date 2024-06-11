@@ -1,10 +1,10 @@
-import EpornService from './eporn/index'
-import XvideosService from './xvideos/index'  
-import PornHubService from './pornhub/index'
+import EpornService from '../service/eporn/index'
+import XvideosService from '../service/xvideos/index'  
+import PornHubService from '../service/pornhub/index'
 import AggregatedSearchService from './AggregatedSearchService'
-import YepTubeService from './yeptube/index'
-import XhamsterService from './xhamster/index'
-import UrlBasedDeduplicationStrategy from '../repositories/UrlBasedDeduplicationStrategy'
+import YepTubeService from '../service/yeptube/index'
+import XhamsterService from '../service/xhamster/index'
+import UrlBasedDeduplicationStrategy from './UrlBasedDeduplicationStrategy'
 
 const epornService = new EpornService()
 const xvideosService = new XvideosService()

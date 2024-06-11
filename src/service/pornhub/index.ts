@@ -1,6 +1,6 @@
 import cheerio from 'cheerio'
 import Video from '../../entities/Video'
-import SearchService from '../searchService'
+import SearchService from '../../repositories/searchService'
 import fs from 'fs'
 
 class PornhubService extends SearchService {
