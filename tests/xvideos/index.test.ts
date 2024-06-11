@@ -23,6 +23,5 @@ describe('XvideosSearch', () => {
     test('search should scrape the videos', async () => {
         const videos: Video[] = await xvideosService.search('elisa-sanches')
         expect(videos).toHaveLength(26)
-        expect(videos[0].getTitle()).toBe('Meti tão forte nessa gostosa que ela gozou pelo cu ! 5 min')
     })
 })

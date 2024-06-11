@@ -14,9 +14,8 @@ class YepTubeService extends SearchService {
 	
 	const url = `${this.baseURL}/${queryFormatted}`
 
-	const data = await (await fetch(url)).text()
-	fs.writeFileSync('yeptube.html', data)
-	const $ = cheerio.load(data,  { xmlMode: true })
+	const data = await this.fetchToText(url)
+	const $ = cheerio.load(data, { xmlMode: true })
 	const videos = $('ins')
 
 	videos.each((_, element) => {
