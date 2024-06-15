@@ -15,7 +15,6 @@ class XhamsterService extends SearchService {
         const $ = cheerio.load(data)
         
         const videos = $('div[data-video-id]')
-        fs.writeFileSync('xhamster.html', data)
 
         videos.each((index, element) => {
             const title = $(element).find('.thumb-image-container__image').attr('alt') || ''

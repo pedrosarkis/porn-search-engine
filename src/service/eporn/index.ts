@@ -9,13 +9,11 @@ class EpornService extends SearchService{
     async search(query: string, page: number = 1, pages: number = 1, videoList: Video[] = []) {
         const queryFormatted = query.split(' ').join('-')
         const pageString = page > 1 ? page : ''
-        console.log(`${this.baseURL}/search/${queryFormatted}/${pageString}`)
         const data = await this.fetchToText(`${this.baseURL}/search/${queryFormatted}/${pageString}`)
         const $ = cheerio.load(data)
        
         
         const videos = $('#vidresults .mb')
-        console.log($('.numlist2 a').length)
         const pagesNumber = pages > 1 ? pages : $('.numlist2 a').length - 1 // -1 because the last element is the next page button, but i need to review this, cuz it seems not quite right
         
         videos.each((index, element) => {

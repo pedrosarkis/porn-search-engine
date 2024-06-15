@@ -5,12 +5,16 @@ import AggregatedSearchService from './AggregatedSearchService'
 import YepTubeService from '../service/yeptube/index'
 import XhamsterService from '../service/xhamster/index'
 import UrlBasedDeduplicationStrategy from './UrlBasedDeduplicationStrategy'
+import TxxxService from '../service/txxx/index'
+import SpankBang from '../service/spankbang/index'
 
 const epornService = new EpornService()
 const xvideosService = new XvideosService()
 const pornhubService = new PornHubService()
 const yeptubeService = new YepTubeService()
 const xhamsterService = new XhamsterService()
+const txxxService = new TxxxService()
+const spankBangService = new SpankBang()
 const deduplicationStrategy = new UrlBasedDeduplicationStrategy()
 
 
@@ -20,7 +24,9 @@ const aggregatedSearchService = new AggregatedSearchService(
         xvideosService,
         pornhubService,
         yeptubeService,
-        xhamsterService
+        xhamsterService,
+        txxxService,
+        spankBangService
     ],
     deduplicationStrategy
 )
