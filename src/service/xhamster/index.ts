@@ -1,5 +1,5 @@
 import cheerio from 'cheerio'
-import SearchService from '../../repositories/searchService'
+import SearchService from '../searchService'
 import Video from '../../entities/Video'
 import fs from 'fs'
 class XhamsterService extends SearchService {

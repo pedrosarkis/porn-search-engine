@@ -1,5 +1,5 @@
 import Video from '../../entities/Video'
-import SearchService from '../../repositories/searchService'
+import SearchService from '../searchService'
 
 class TxxxService extends SearchService{
     constructor() {

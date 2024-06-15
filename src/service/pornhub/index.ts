@@ -1,15 +1,11 @@
 import cheerio from 'cheerio'
 import Video from '../../entities/Video'
-import SearchService from '../../repositories/searchService'
+import SearchService from '../searchService'
 import fs from 'fs'
 
 class PornhubService extends SearchService {
     constructor() {
         super('https://www.pornhub.com')
-    }
-
-    private normalizeData(data: string) {
-        return data.replace(/\n/g, '').trim()
     }
 
     async search(query: string, page: number = 0) {

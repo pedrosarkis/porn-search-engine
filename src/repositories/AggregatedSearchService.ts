@@ -1,4 +1,4 @@
-import SearchService from './searchService'
+import SearchService from '../service/searchService'
 import Video from '../entities/Video'
 import DeduplicationStrategy from './UrlBasedDeduplicationStrategy'
 

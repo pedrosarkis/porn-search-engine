@@ -1,4 +1,4 @@
-import SearchService from "../../repositories/searchService"
+import SearchService from "../searchService"
 import cheerio from 'cheerio'
 import fs from 'fs'
 import Video from "../../entities/Video"
